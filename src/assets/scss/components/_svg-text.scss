@@ -1,0 +1,63 @@
+/* =======================================================================
+    SVG Text
+======================================================================== */
+
+.text {
+    &-logo {
+        svg {
+            fill: $white;
+        }
+    }
+
+    &-info {
+        svg {
+            fill: $white;
+        }
+    }
+
+    &-email {
+        svg {
+            fill: $white;
+        }
+    }
+
+    &-resume {
+        svg {
+            fill: $white;
+        }
+    }
+
+    &-frontend {
+        svg {
+            fill: get-color(primary);
+        }
+    }
+
+    &-developer {
+        svg {
+            fill: get-color(primary);
+        }
+    }
+
+    &-hello {
+        position: absolute;
+        left: 0;
+        pointer-events: none;
+
+        svg {
+            fill: get-color(secondary);
+            fill-opacity: 0.15;
+        }
+    }
+
+    &-reachout {
+        position: absolute;
+        left: 0;
+        pointer-events: none;
+
+        svg {
+            fill: get-color(secondary);
+            fill-opacity: 0.15;
+        }
+    }
+}

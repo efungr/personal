@@ -1,0 +1,43 @@
+/* =======================================================================
+    layout
+======================================================================== */
+
+section {
+    min-height: 100vh;
+}
+
+.home {
+    &-landing {
+        .landing-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    &-info {
+        position: relative;
+
+        .text-hello {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h3 {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &-about {
+        position: relative;
+
+        .about-text-container {
+            position: absolute;
+            top: 0;
+        }
+    }
+}

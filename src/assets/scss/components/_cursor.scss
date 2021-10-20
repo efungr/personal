@@ -1,0 +1,28 @@
+/* =======================================================================
+    Cursor
+======================================================================== */
+
+.cursor {
+    pointer-events: none;
+
+    &-ball,
+    &-stroke {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    &-ball {
+        circle {
+            fill: get-color('ternary');
+        }
+    }
+
+    &-stroke {
+        circle {
+            fill: none;
+            stroke: get-color('ternary');
+        }
+    }
+}

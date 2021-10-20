@@ -1,0 +1,62 @@
+/* =======================================================================
+    Navigation
+======================================================================== */
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    mix-blend-mode: difference;
+
+    .nav-list {
+        &.primary {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            >.nav-item {
+                > .nav-link {
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    &.active {
+                        + .secondary {
+                            display: flex;
+                        }
+                    }
+                }
+
+                &:first-child {
+                    > .nav-link {
+                        left: 0;
+                        right: auto;
+                    }
+                }
+            }
+        }
+
+        &.secondary {
+            display: none;
+            flex-direction: row;
+            position: absolute;
+            top: 110px;
+            right: 30px;
+
+            .nav-link {
+                padding: 20px;
+            }
+        }
+    }
+
+    .nav-link {
+        display: block;
+        padding: 50px;
+    }
+}
