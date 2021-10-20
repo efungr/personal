@@ -28,6 +28,8 @@
     }
 
     &-frontend {
+        margin-bottom: 2%;
+
         svg {
             fill: get-color(primary);
         }
@@ -42,7 +44,16 @@
     &-hello {
         position: absolute;
         left: 0;
+        width: 111%;
         pointer-events: none;
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
+
+        @include breakpoint(large) {
+            width: 76%;
+        }
 
         svg {
             fill: get-color(secondary);
@@ -53,7 +64,16 @@
     &-reachout {
         position: absolute;
         left: 0;
+        width: 111%;
         pointer-events: none;
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
+
+        @include breakpoint(large) {
+            width: 69%;
+        }
 
         svg {
             fill: get-color(secondary);

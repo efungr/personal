@@ -3,18 +3,22 @@
 ======================================================================== */
 
 section {
+    position: relative;
+    margin-bottom: 10vh;
     min-height: 100vh;
 }
 
 .home {
     &-landing {
-        position: relative;
-
         .landing-text {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 90%;
+            width: 100%;
+
+            @include breakpoint(large) {
+                width: 90%;
+            }
         }
 
         .scroll-down {
@@ -42,12 +46,15 @@ section {
         }
     }
     &-info {
-        position: relative;
-
         .text-hello {
             position: absolute;
             top: 50%;
+            left: -20px;
             transform: translateY(-50%);
+
+            @include breakpoint(medium) {
+                left: -30px;
+            }
         }
 
         h3 {
@@ -60,11 +67,22 @@ section {
     }
 
     &-about {
-        position: relative;
-
         .about-text-container {
             position: absolute;
             top: 0;
+        }
+    }
+
+    &-contact {
+        .text-reachout {
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            transform: translateY(-50%);
+
+            @include breakpoint(medium) {
+                left: -30px;
+            }
         }
     }
 }
