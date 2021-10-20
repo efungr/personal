@@ -46,6 +46,12 @@ section {
         }
     }
     &-info {
+        min-height: 600px;
+
+        @include breakpoint(medium) {
+            min-height: 100vh;
+        }
+
         .text-hello {
             position: absolute;
             top: 10%;
@@ -116,9 +122,58 @@ section {
     }
 
     &-about {
+        .about-intro-container {
+            position: relative;
+            margin-bottom: 35px;
+
+            @include breakpoint(medium) {
+                margin-bottom: 10%;
+            }
+
+            @include breakpoint(large) {
+                margin-bottom: 5%;
+            }
+
+            @include breakpoint(xxlarge) {
+                margin-bottom: 0;
+            }
+
+            img {
+                margin-bottom: 10px;
+            }
+        }
+
         .about-text-container {
-            position: absolute;
-            top: 0;
+            @include breakpoint(medium) {
+                position: absolute;
+                top: 10%;
+            }
+
+            @include breakpoint(large) {
+                top: 15%;
+            }
+
+            h2 {
+                margin-bottom: 35px;
+
+                @include breakpoint(medium) {
+                    margin-bottom: 5%;
+                }
+
+                @include breakpoint(xxlarge) {
+                    margin-bottom: 7%;
+                }
+            }
+        }
+
+        .about-skills-container {
+            @include breakpoint(xxlarge) {
+                margin-top: -5%;
+            }
+
+            &:first-child {
+                margin-bottom: 3%;
+            }
         }
     }
 

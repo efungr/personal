@@ -82,6 +82,7 @@
     @include type-h5;
 
     font-weight:$global-weight-normal;
+    line-height: 1.7;
 }
 
 @mixin type-link {
