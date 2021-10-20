@@ -8,10 +8,37 @@ section {
 
 .home {
     &-landing {
+        position: relative;
+
         .landing-text {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            width: 90%;
+        }
+
+        .scroll-down {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 70px;
+            right: -30px;
+            transform: rotate(90deg);
+
+            h5 {
+                margin: 0;
+                padding-right: 20px;
+                text-transform: uppercase;
+            }
+
+            span {
+                line-height: 0;
+            };
+
+            svg {
+                fill: get-color(primary);
+                transform: rotate(-90deg);
+            }
         }
     }
     &-info {
