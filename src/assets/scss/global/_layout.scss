@@ -48,21 +48,70 @@ section {
     &-info {
         .text-hello {
             position: absolute;
-            top: 50%;
+            top: 10%;
             left: -20px;
-            transform: translateY(-50%);
 
             @include breakpoint(medium) {
                 left: -30px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .info-text {
+            &-container {
+                display: flex;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 20%;
+
+                @include breakpoint(medium) {
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                @include breakpoint(large) {
+                    justify-content: center;
+                    align-items: center;
+                    height: 0;
+                }
+            }
+
+            &-left {
+                margin-bottom: 10%;
+
+                @include breakpoint(medium) {
+                    margin-bottom: 0;
+                }
+
+                @include breakpoint(large) {
+                    transform: translateY(-130%);
+                }
+            }
+
+            &-right {
+                @include breakpoint(medium) {
+                    transform: translateY(70%);
+                }
+
+                @include breakpoint(large) {
+                    transform: translateY(55%);
+                }
             }
         }
 
         h3 {
             display: flex;
-            justify-content: center;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            flex-direction: column;
+
+            @include breakpoint(medium) {
+                white-space: nowrap;
+            }
+
+            @include breakpoint(large) {
+                justify-content: center;
+            }
         }
     }
 
