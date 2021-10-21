@@ -5,9 +5,6 @@
 @mixin type-h1 {
     font-size: 3.052rem; // 48.8px
 
-    // @include breakpoint(medium) {
-    //     font-size: calc(16px + 3.206vw); // 48.8px
-    // }
     @include breakpoint(large) {
         font-size: calc(16px + 3.875vw); // 90.4px
     }
@@ -16,10 +13,6 @@
 @mixin type-h2 {
     font-size: 2.441rem; // 39.1px
 
-    // @include breakpoint(medium) {
-    //     font-size: calc(16px + 2.252vw); // 39.1px
-    // }
-
     @include breakpoint(large) {
         font-size: calc(16px + 2.5vw); // 64px
     }
@@ -27,10 +20,6 @@
 
 @mixin type-h3 {
     font-size: 1.953rem; // 31.3px
-
-    // @include breakpoint(medium) {
-    //     font-size: calc(16px + 1.49vw); // 31.3px
-    // }
 
     @include breakpoint(large) {
         font-size: calc(16px + 1.52083vw); // 45.2px
@@ -42,9 +31,6 @@
     font-family: $body-font-family;
     font-weight:$global-weight-medium;
 
-    // @include breakpoint(medium) {
-    //     font-size: calc(16px + 0.88vw); // 25px
-    // }
     @include breakpoint(large) {
         font-size: calc(16px + 0.83333vw); // 32px
     }
@@ -54,10 +40,7 @@
     font-size: 1.25rem; // 20px
     font-family: $body-font-family;
     font-weight:$global-weight-medium;
-
-    // @include breakpoint(medium) {
-    //     font-size: calc(16px + .4vw); // 20px
-    // }
+    letter-spacing: 0.06rem;
 
     @include breakpoint(large) {
         font-size: calc(16px + .3437vw); // 22.6px
@@ -87,6 +70,7 @@
 
     font-weight:$global-weight-normal;
     line-height: 1.7;
+    letter-spacing: 0.025rem;
 }
 
 @mixin type-link {
