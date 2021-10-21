@@ -6,12 +6,26 @@
     &-logo {
         svg {
             fill: $white;
+            height: 14px;
+            width: 105px;
+
+            @include breakpoint(large) {
+                height: 17px;
+                width: 119px;
+            }
         }
     }
 
     &-info {
         svg {
             fill: $white;
+            height: 14px;
+            width: 46.5px;
+
+            @include breakpoint(large) {
+                height: 17px;
+                width: 53px;
+            }
         }
     }
 
