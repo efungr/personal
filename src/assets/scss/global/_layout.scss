@@ -156,10 +156,17 @@ section {
                 @include breakpoint(medium) {
                     margin-bottom: 5%;
                     white-space: nowrap;
+                    mix-blend-mode: multiply;
                 }
 
                 @include breakpoint(xxlarge) {
                     margin-bottom: 7%;
+                }
+            }
+
+            p {
+                @include breakpoint(medium) {
+                    mix-blend-mode: multiply;
                 }
             }
         }
@@ -222,6 +229,8 @@ section {
         }
 
         .contact-email {
+            margin-bottom: 10px;
+
             a {
                 @include type-h1;
 

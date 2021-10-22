@@ -1,7 +1,7 @@
 {
-  "name": "Eric Fung Personal Site",
+  "name": "foundation-zurb-template",
   "version": "1.0.0",
-  "description": "Eric Fung Personal Site",
+  "description": "Official ZURB Template for Foundation for Sites.",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
