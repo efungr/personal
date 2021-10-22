@@ -180,6 +180,7 @@ section {
 
         @include breakpoint(medium) {
             min-height: 100vh;
+            margin-bottom: 0;
         }
 
         .text-reachout {
@@ -225,10 +226,44 @@ section {
                 @include type-h1;
 
                 font-family: $header-font-family;
-                text-decoration: underline;
+                position: relative;
 
                 @include breakpoint(small only) {
                     font-size: 13vw;
+                }
+
+                &:hover {
+                    &::after {
+                        left: 100%;
+                    }
+                    &::before {
+                        transition-delay: .50s;
+                        right: 0;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    height: 5px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: $black;
+                    transition: left 0.25s ease-out;
+                }
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    height: 5px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 100%;
+                    background: $black;
+                    transition: right 0.25s ease-out;
                 }
             }
         }

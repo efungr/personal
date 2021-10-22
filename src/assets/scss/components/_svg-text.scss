@@ -5,7 +5,7 @@
 .text {
     &-logo {
         svg {
-            fill: $white;
+            fill: $medium-gray;
             height: 14px;
             width: 105px;
 
@@ -18,9 +18,9 @@
 
     &-info {
         svg {
-            fill: $white;
+            fill: $medium-gray;
             height: 14px;
-            width: 46.5px;
+            width: 47px;
 
             @include breakpoint(large) {
                 height: 17px;
@@ -31,13 +31,27 @@
 
     &-email {
         svg {
-            fill: $white;
+            fill: $medium-gray;
+            height: 14px;
+            width: 58px;
+
+            @include breakpoint(large) {
+                height: 17px;
+                width: 66px;
+            }
         }
     }
 
     &-resume {
         svg {
-            fill: $white;
+            fill: $medium-gray;
+            height: 14px;
+            width: 79px;
+
+            @include breakpoint(large) {
+                height: 17px;
+                width: 89px;
+            }
         }
     }
 

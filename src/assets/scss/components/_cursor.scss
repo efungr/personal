@@ -14,13 +14,13 @@
     }
 
     &-ball {
-        circle {
+        svg {
             fill: get-color('ternary');
         }
     }
 
     &-stroke {
-        circle {
+        svg {
             fill: none;
             stroke: get-color('ternary');
         }

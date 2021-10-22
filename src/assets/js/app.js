@@ -10,72 +10,108 @@ require('foundation-sites');
 $(document).ready(function () {
     $(document).foundation();
 
-    ///////// Smooth Browser Scroll ////////////
-    function smoothMouse() {
-        const target =
-            document.documentElement ||
-            document.body.parentNode ||
-            document.body;
-        const speed = 75;
-        const smooth = 12;
-        let moving = false;
-        let pos = target.scrollTop;
+    $('.nav-link.info').on('click', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('active');
+    });
 
-        target.addEventListener("mousewheel", scroll, {
+    ///////// Smooth Browser Scroll ////////////
+
+    function initSmoothScroll() {
+        new SmoothScroll(document, 120, 12)
+    }
+
+    function SmoothScroll(target, speed, smooth) {
+        if (target === document)
+            target = (document.scrollingElement ||
+                document.documentElement ||
+                document.body.parentNode ||
+                document.body) // cross browser support for document scrolling
+
+        var moving = false
+        var pos = target.scrollTop
+        var frame = target === document.body &&
+            document.documentElement ?
+            document.documentElement :
+            target // safari is the new IE
+
+        target.addEventListener('mousewheel', scrolled, {
             passive: false
+        })
+        target.addEventListener('DOMMouseScroll', scrolled, {
+            passive: false
+        })
+
+        $('.btt-link').on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $('#home').offset().top
+            }, 1000, function() {
+                pos = 0;
+                if (!moving) update()
+            });
         });
 
-        function scroll(e) {
-            // disable default scrolling
-            e.preventDefault();
+        function scrolled(e) {
+            e.preventDefault(); // disable default scrolling
 
-            let delta;
+            var delta = normalizeWheelDelta(e)
 
+            pos += -delta * speed
+            pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+
+            if (!moving) update()
+        }
+
+        function normalizeWheelDelta(e) {
             if (e.detail) {
                 if (e.wheelDelta)
-                    delta =
-                        (e.wheelDelta / e.detail / 40) *
-                        (e.detail > 0 ? 1 : -1);
-                else delta = -e.detail / 3;
-            } else {
-                delta = e.wheelDelta / 120;
-            }
-
-            pos += -delta * speed;
-            pos = Math.max(
-                0,
-                Math.min(pos, target.scrollHeight - target.clientHeight)
-            );
-
-            if (!moving) update();
+                    return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
+                else
+                    return -e.detail / 3 // Firefox
+            } else
+                return e.wheelDelta / 120 // IE,Safari,Chrome
         }
 
         function update() {
-            moving = true;
+            moving = true
 
-            const delta = (pos - target.scrollTop) / smooth;
+            var delta = (pos - target.scrollTop) / smooth
 
-            target.scrollTop += delta;
+            target.scrollTop += delta
 
-            if (Math.abs(delta) > 0.5) window.requestAnimationFrame(update);
-            else moving = false;
+            if (Math.abs(delta) > 0.5)
+                requestFrame(update)
+            else
+                moving = false
         }
+
+        var requestFrame = function() { // requestAnimationFrame cross browser
+            return (
+                window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function(func) {
+                    window.setTimeout(func, 1000 / 50);
+                }
+            );
+        }()
     }
 
-    const mouse = new smoothMouse();
+    initSmoothScroll();
 
     //////// Cursor Section ////////////
-
-    const $stroke = document.querySelector('.cursor-stroke');
-    const $ball = document.querySelector('.cursor-ball');
-    const $hoverables = document.querySelectorAll('a');
+    const $stroke = $('.cursor-stroke');
+    const $ball = $('.cursor-ball');
+    const $hoverables = $('a');
 
     // Listeners
-    document.body.addEventListener('mousemove', onMouseMove);
-    for (let i = 0; i < $hoverables.length; i++) {
-      $hoverables[i].addEventListener('mouseenter', onMouseHover);
-      $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-    }
+    $('body').on('mousemove', onMouseMove);
+
+    $hoverables.on('mouseenter', onMouseHover);
+    $hoverables.on('mouseleave', onMouseHoverOut);
 
     // Move the cursor
     function onMouseMove(e) {
@@ -117,10 +153,48 @@ $(document).ready(function () {
     // GSAP
     gsap.registerPlugin(ScrollTrigger);
 
-    // Copyright function
-    function getCopyrightYear() {
-        document.getElementById('year').innerHTML = new Date().getFullYear();
+    gsap.to('.text-frontend', {
+        scrollTrigger: {
+            trigger: '.home-landing',
+            start: 'center center',
+            scrub: .5,
+        },
+        xPercent: 25
+    });
+
+    gsap.to('.text-developer', {
+        scrollTrigger: {
+            trigger: '.home-landing',
+            start: 'center center',
+            scrub: .5,
+        },
+        xPercent: -25
+    });
+
+    gsap.to('.spinny-boy', {
+        scrollTrigger: {
+            trigger: '.spinny-boy',
+            start: 'top bottom',
+            scrub: .5,
+        },
+        rotate: 360
+    });
+
+    if (Foundation.MediaQuery.is('medium up')) {
+        gsap.to('.info-parallax-text', {
+            scrollTrigger: {
+                trigger: '.home-info',
+                start: 'top center',
+                scrub: .5,
+            },
+            yPercent: -50
+        });
     }
 
-    getCopyrightYear();
+    // Set Copyright Year
+    function setCopyright() {
+        $('#year').html(new Date().getFullYear());
+    }
+
+    setCopyright();
 });
