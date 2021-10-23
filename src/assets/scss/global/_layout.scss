@@ -8,6 +8,10 @@ section {
     min-height: 100vh;
 }
 
+.site-container {
+    overflow-x: hidden;
+}
+
 .home {
     &-landing {
         .landing-text {

@@ -22,8 +22,12 @@ footer {
 
     .copyright {
         position: absolute;
-        right: 0;
+        right: 10px;
         bottom: 2px;
+
+        @include breakpoint(medium) {
+            right: 20px;
+        }
 
         h6 {
             margin: 0;
