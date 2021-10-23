@@ -10,6 +10,7 @@ nav {
     right: 0;
     z-index: 2;
     mix-blend-mode: difference;
+    pointer-events: none;
 
     .nav-list {
         &.primary {
@@ -88,6 +89,7 @@ nav {
     .nav-link {
         display: block;
         padding: 20px;
+        pointer-events: all;
 
         @include breakpoint(medium) {
             padding: 30px;
