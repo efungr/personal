@@ -5,6 +5,10 @@
 .cursor {
     pointer-events: none;
 
+    &.hide {
+        display: none;
+    }
+
     &-ball,
     &-stroke {
         position: fixed;

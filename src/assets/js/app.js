@@ -113,27 +113,28 @@ function animationCallback($element, callback) {
     });
 }
 
+$(window).on('load', function () {
+    var loadingBar = $('#loader .bar');
+    var loader = $('#loader');
+    var loadingSlide = gsap.to('.loading-screen', {
+        duration: 0.8,
+        height: 0,
+        paused: true,
+        onComplete() {
+            $('html').removeClass('loading');
+            $('#loader').hide();
+        }
+    });
+    var loadingFinished = function() {
+        loadingSlide.play();
+    };
+
+    loadingBar.css({'animation-name': 'progress-bar'});
+    animationCallback(loadingBar, loadingFinished);
+});
+
 $(document).ready(function () {
     $(document).foundation();
-    $(window).on('load', function () {
-        var loadingBar = $('#loader .bar');
-        var loader = $('#loader');
-        var loadingSlide = gsap.to('.loading-screen', {
-            duration: 0.8,
-            height: 0,
-            paused: true,
-            onComplete() {
-                $('html').removeClass('loading');
-                $('#loader').hide();
-            }
-        });
-        var loadingFinished = function() {
-            loadingSlide.play();
-        };
-
-        loadingBar.css({'animation-name': 'progress-bar'});
-        animationCallback(loadingBar, loadingFinished);
-    });
 
     initSmoothScroll();
     setCopyright();
@@ -193,8 +194,8 @@ $(document).ready(function () {
                 opacity: 1
             });
         }
-    } else {
-        $('.cursor').hide();
+
+        $('.cursor').removeClass('hide');
     }
 
     // GSAP
