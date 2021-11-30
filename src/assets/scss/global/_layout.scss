@@ -10,6 +10,16 @@ section {
 
 .site-container {
     overflow-x: hidden;
+
+    &.fluid {
+        padding-left: rem-calc(15px);
+        padding-right: rem-calc(15px);
+
+        @include breakpoint(medium) {
+            padding-left: rem-calc(30px);
+            padding-right: rem-calc(30px);
+        }
+    }
 }
 
 .home {
@@ -25,13 +35,31 @@ section {
             }
         }
 
+        .landing-nav {
+            a {
+                opacity: 1;
+                transition: opacity 0.5s ease-in;
+                position: absolute;
+                bottom: 20px;
+
+                &.hide-theme {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+
         .scroll-down {
             display: flex;
             align-items: center;
             position: absolute;
-            bottom: 70px;
-            right: -30px;
+            bottom: 78px;
+            right: -45px;
             transform: rotate(90deg);
+
+            @include breakpoint(medium) {
+                right: -50px;
+            }
 
             h5 {
                 margin: 0;
@@ -240,6 +268,7 @@ section {
 
                 font-family: $header-font-family;
                 position: relative;
+                text-transform: none;
 
                 @include breakpoint(small only) {
                     font-size: 13vw;

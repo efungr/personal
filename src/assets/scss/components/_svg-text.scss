@@ -7,7 +7,7 @@
         svg {
             fill: $medium-gray;
             height: 14px;
-            width: 105px;
+            width: 100px;
 
             @include breakpoint(large) {
                 height: 17px;

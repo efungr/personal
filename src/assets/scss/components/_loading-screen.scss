@@ -34,7 +34,7 @@
         margin-bottom: 15px;
 
         svg {
-            fill: $white;
+            fill: var(--theme-white);
             height: 60px;
             width: 60px;
 
@@ -53,7 +53,7 @@
         }
 
         svg {
-            fill: $white;
+            fill: var(--theme-white);
             height: 14px;
             width: 105px;
 

@@ -2,12 +2,20 @@
     Base
 ======================================================================== */
 
+:root {
+  --theme-white: #{$white};
+}
+
+.cool {
+    --theme-white: #{$cool-white};
+}
+
 *, html, body, a, *:hover {
     cursor: none !important;
 }
 
 html {
-    background: $body-background;
+    background: var(--theme-white);
 
     &.loading,
     &.loading body {
@@ -17,9 +25,11 @@ html {
 }
 
 body {
+    background: var(--theme-white);
     overflow-x: hidden;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    transition: background 0.5s ease-in;
 
     &::-webkit-scrollbar {
         display: none;  /* Safari and Chrome */

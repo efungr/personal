@@ -146,6 +146,20 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    $('.landing-nav a').on('click', function(e) {
+        e.preventDefault();
+
+        if ($(this).hasClass('cool-link')) {
+            $(this).addClass('hide-theme');
+            $('.warm-link').removeClass('hide-theme');
+            $('html').addClass('cool');
+        } else {
+            $(this).addClass('hide-theme');
+            $('.cool-link').removeClass('hide-theme');
+            $('html').removeClass('cool');
+        }
+    });
+
     if(!isMobile) {
         //////// Cursor Section ////////////
         const $stroke = $('.cursor-stroke');
